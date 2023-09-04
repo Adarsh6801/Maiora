@@ -1,0 +1,29 @@
+<div class="center">
+    <h1>PRODUCTS</h1>
+</div>
+<table>
+    <thead> 
+        <tr>
+            <th>Products</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of Products.slice((currentPage-1) * pageSize, currentPage* pageSize)">
+            <td class="id">{{product.id}}</td>
+            <td class="name">{{product.name}}</td>
+            <td class="category">{{product.category}}</td>
+            <td class="price">{{product.price}}</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+<div class="pagination">
+    <button (click)="setPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <ng-container *ngFor="let page of getPages()">
+        <button (click)="setPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+      </ng-container>
+    <button (click)="setPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
