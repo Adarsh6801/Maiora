@@ -1,1 +1,12 @@
-<p>sidemenu works!</p>
+<nav [ngClass]="{'closed': isSideNavClosed}">
+  <div class="side-nav-content">
+    <!-- Close button -->
+    <button (click)="closeSideNav()" class="close-button">×</button>
+    <!-- Navigation items with background on the left -->
+    <div class="nav-items">
+      <a href="#">Home</a>
+      <a routerLink="/table">Table</a>
+      <!-- Add more navigation items as needed -->
+    </div>
+  </div>
+</nav>
